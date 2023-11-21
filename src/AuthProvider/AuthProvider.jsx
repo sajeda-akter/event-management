@@ -1,11 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/fairebase.config";
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut} from "firebase/auth";
+import { createUserWithEmailAndPassword,signInWithPopup,signInWithEmailAndPassword,onAuthStateChanged,signOut, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth";
 
 
 export const AuthContext=createContext(null)
 const AuthProvider = ({children}) => {
-    const [user,setUser]=useState(null)
+    const [user,setUser]=useState(null);
+    const googleProvider=new GoogleAuthProvider()
+    const githubProvider=new GithubAuthProvider()
 
     const createUser=(email,password)=>{
         return createUserWithEmailAndPassword(auth,email,password)
@@ -14,6 +16,14 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword (auth,email,password)
     }
 
+    const googleSignin=()=>{
+       return signInWithPopup(auth,googleProvider)
+
+    }
+
+    const githubSignin=()=>{
+        return signInWithPopup(auth,githubProvider)
+    }
     useEffect(()=>{
         const unSubcribe=onAuthStateChanged(auth,currentUser=>{
             console.log('obserb ')
@@ -29,7 +39,9 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         userSignin,
-        logOut
+        logOut,
+        googleSignin,
+        githubSignin
 
     }
     return (

@@ -23,6 +23,9 @@ const Login = () => {
     .catch(error=>console.log(error))
     
 
+    // reset form
+    e.target.email.value=""
+    e.target.password.value="";
   }
   return (
     <div
