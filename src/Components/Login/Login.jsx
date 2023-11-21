@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {userSignin}=useContext(AuthContext)
@@ -10,9 +11,14 @@ const Login = () => {
   
     const email=e.target.email.value;
     const password=e.target.password.value;
+
+    
+ 
+
     userSignin(email,password)
     .then(result=>{
       console.log(result.user)
+      toast("Successfully login user")
     })
     .catch(error=>console.log(error))
     
@@ -49,7 +55,7 @@ const Login = () => {
               className="py-4 outline-none border-b-2 border-indigo-800"
               required
             />
-     
+              {/* <span className="text-red-600 font-bold">{errorPassword}</span>  */}
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>

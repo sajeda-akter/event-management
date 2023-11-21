@@ -2,22 +2,30 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
-  const {logOut}=useContext(AuthContext)
+  const {logOut,user}=useContext(AuthContext)
 
   const handleLogout=()=>{
     logOut()
+    toast('Successfully user logout')
+
   }
     const menuItems=<>
     <li><NavLink>Home</NavLink></li>
     {
-      
-    }
-   <li><button className="btn btn-primary" onClick={handleLogout}>Logout</button>
+      user? 
+      <li><button className="btn btn-primary" onClick={handleLogout}>Logout</button>
 </li>
+:
+    <>
     <li><NavLink to="/signup">Signup</NavLink></li>
     <li><NavLink to="/login">Login</NavLink></li>
+    </>
+    }
+
+ 
     </>
     return (
         <div className="navbar bg-base-100">

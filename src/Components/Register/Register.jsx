@@ -1,18 +1,38 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const {createUser}=useContext(AuthContext)
+  const [errorpassword,setErrorPassword]=useState()
 
   const handleSignup=(e)=>{
     e.preventDefault()
     const name=e.target.name.value;
     const email=e.target.email.value;
     const password=e.target.password.value;
+    
+    // display password error
+    if(password.length<7){
+      setErrorPassword("The password is less than 6 characters.")
+      return;
+    }
+    else if(!/[A_Z]/.test(password)){
+      setErrorPassword("The password don't have a capital letter")
+      return;
+    }
+    else if(!/[-+_!@#$%^&*., ?]/.test(password)){
+      setErrorPassword("The password  don't have a special character      ")
+     return
+    }
+
+    setErrorPassword("")
+
     createUser(email,password)
     .then(result=>{
       console.log(result.user)
+      toast("Successfully create a user")
     })
     .catch(err=>console.log(err))
 
@@ -56,12 +76,8 @@ const Register = () => {
               className="py-4 outline-none border-b-2 border-indigo-800"
               required
             />
-          <div className="form-control mt-3">
-  <label className="label cursor-pointer">
-    <input type="checkbox" name="terms" className="checkbox checkbox-primary" />
-    <span className="label-text text-indigo-600 mr-44 ">Accept Terms & Condition</span> 
-  </label>
-</div>
+                    <span className="text-red-600 font-semibold">{errorpassword}</span>
+
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Signup</button>
@@ -88,6 +104,7 @@ const Register = () => {
          
           </div>
         </form>
+
       </div>
     </div>
   );
