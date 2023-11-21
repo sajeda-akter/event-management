@@ -14,6 +14,7 @@ const Navbar = () => {
   }
     const menuItems=<>
     <li><NavLink>Home</NavLink></li>
+    <li><NavLink to="/service">Services</NavLink></li>
     {
       user? 
       <li><button className="btn btn-primary" onClick={handleLogout}>Logout</button>

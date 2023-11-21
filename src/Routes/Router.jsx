@@ -4,10 +4,12 @@ import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import Services from "../Components/Home/Services/Services";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 export const routers=createBrowserRouter([
     {
         path:'/',
+        errorElement:<ErrorPage/>,
         element:<Main/>,
         children:[
             {
