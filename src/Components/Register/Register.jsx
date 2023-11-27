@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
   const {createUser,googleSignin,githubSignin,userUpdate}=useContext(AuthContext)
   const [errorpassword,setErrorPassword]=useState()
-
+  const navigate=useNavigate()
+  const location=useLocation()
   const handleSignup=(e)=>{
     e.preventDefault()
     const name=e.target.name.value;
@@ -20,7 +21,7 @@ const Register = () => {
       setErrorPassword("The password is less than 6 characters.")
       return;
     }
-    else if(!/[A_Z]/.test(password)){
+    else if(!/[A-Z]/.test(password)){
       setErrorPassword("The password don't have a capital letter")
       return;
     }
@@ -38,6 +39,8 @@ const Register = () => {
       userUpdate(name,photoURL)
       .then(()=>{})
       toast("Successfully create a user")
+      navigate(location?.state ? location.state:'/')
+
     })
     .catch(err=>console.log(err))
 

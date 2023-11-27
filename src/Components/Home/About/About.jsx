@@ -6,7 +6,7 @@ const About = () => {
           src="https://i.ibb.co/RTwGDnj/about.jpg" className="w-full rounded-lg shadow-2xl"
         />
         <div>
-          <h1 className="lg:text-5xl text-3xl font-bold">About Us</h1>
+          <h1 className="lg:text-5xl text-3xl font-bold text-center">About Us</h1>
           <p className="py-6 text-xl">
             {" "}
             You can always be creative with your table decorations. Think of
@@ -15,7 +15,7 @@ const About = () => {
             (photo booth), photo display set up, aisle decoration, stage
             decoration, entrance arch.
           </p>
-          <button className="btn btn-primary">More Details</button>
+          {/* <button className="btn btn-primary">More Details</button> */}
         </div>
       </div>
     </div>

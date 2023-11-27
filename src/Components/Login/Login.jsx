@@ -1,14 +1,14 @@
 import { useContext} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const {userSignin,googleSignin,githubSignin}=useContext(AuthContext)
   const navigate=useNavigate()
+  const location=useLocation()
 const handleGoogle=()=>{
   googleSignin()
-  navigate('/')
 
 }
 
@@ -27,6 +27,7 @@ const handleGithub=()=>{
     userSignin(email,password)
     .then(result=>{
       console.log(result.user)
+      navigate(location?.state ? location.state:'/')
       toast("Successfully login user")
     })
     .catch(error=>console.log(error))
