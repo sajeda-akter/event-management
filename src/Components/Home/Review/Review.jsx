@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import {  FaStar, FaStarHalf } from 'react-icons/fa';
+
 
 
 const Review = () => {
@@ -20,8 +22,16 @@ const Review = () => {
               <figure className="p-4 lg:p-0"><img className=" lg:w-96 w-72 h-72 lg:h-52 rounded-md " src={review.img} alt={review.name}/></figure>
               <div className="card-body">
                 <h2 className="card-title">{review.name}</h2>
-                <p>{review.reviews.slice(0,110)} see more...</p>
-              
+                <div className="flex gap-2">
+                <FaStar className="text-yellow-500"/>
+                <FaStar className="text-yellow-500"/>
+                < FaStar className="text-yellow-500"/>
+                <FaStar className="text-yellow-500"/>
+                <FaStarHalf className="text-yellow-500"/>
+                </div>
+             
+                <p>{review.reviews.slice(0,110)}... <span className="font-bold">See more</span></p>
+              <p className="text-xl ">{review.time}</p>
               </div>
             </div>)
            }

@@ -1,8 +1,21 @@
-# React + Vite
+Projects_Name:Butterfly Wings
+Project_Live_Link:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+#Projects features and functionalities
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*Implement firebase authentications
+
+*Implement toastify for toast
+
+*React-Router-Dom
+
+*Tailwind CSS and Daisy UI
+
+*AuthContext
+
+*You can book any kind of event
+
+*You can see many reviews our clients
+
+*You cannot access detailspage without access
