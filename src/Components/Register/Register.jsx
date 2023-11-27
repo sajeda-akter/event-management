@@ -4,12 +4,14 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const {createUser,googleSignin,githubSignin}=useContext(AuthContext)
+  const {createUser,googleSignin,githubSignin,userUpdate}=useContext(AuthContext)
   const [errorpassword,setErrorPassword]=useState()
 
   const handleSignup=(e)=>{
     e.preventDefault()
     const name=e.target.name.value;
+    const photoURL=e.target.PhotoURL;
+    console.log(photoURL)
     const email=e.target.email.value;
     const password=e.target.password.value;
     
@@ -32,6 +34,9 @@ const Register = () => {
     createUser(email,password)
     .then(result=>{
       console.log(result.user)
+
+      userUpdate(name,photoURL)
+      .then(()=>{})
       toast("Successfully create a user")
     })
     .catch(err=>console.log(err))
@@ -73,9 +78,18 @@ const Register = () => {
         <form className="card-body " onSubmit={handleSignup}>
           <div className="form-control">
             <input
-              type="name"
+              type="text"
               placeholder="Enter your name"
               name="name"
+              className="py-4 outline-none border-b-2 border-indigo-800"
+           
+            />
+          </div>
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="PhotoURL"
+              name="photoURL"
               className="py-4 outline-none border-b-2 border-indigo-800"
            
             />

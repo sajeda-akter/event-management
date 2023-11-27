@@ -1,56 +1,93 @@
-
-import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../../../AuthProvider/AuthProvider';
-import { toast } from 'react-toastify';
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const {logOut,user}=useContext(AuthContext)
+  const {user,logOut}=useContext(AuthContext)
 
   const handleLogout=()=>{
     logOut()
-    toast('Successfully user logout')
-
+    .then(()=>{
+      toast('Successfully logout')
+    })
   }
-    const menuItems=<>
-    <li><NavLink>Home</NavLink></li>
-    <li><NavLink to="/service">Services</NavLink></li>
-    {
-      user? 
-      <li><button className="btn btn-primary" onClick={handleLogout}>Logout</button>
-</li>
-:
+  const menuItems = (
     <>
-    <li><NavLink to="/signup">Signup</NavLink></li>
-    <li><NavLink to="/login">Login</NavLink></li>
-    </>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+    
+    {
+      user? <>
+      <button onClick={handleLogout} className="btn  btn-primary w-24 text-xl align-end">Logout</button></>
+      :
+      <>
+      <li><NavLink to="/login">Login</NavLink></li>
+      </>
     }
-
- 
     </>
-    return (
-        <div className="navbar bg-base-100">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <label tabIndex={0} className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-      {menuItems}
-      </ul>
+  );
+
+const handleToOpen=()=>{
+  document.getElementById('navmenu').classList.remove('hidden')
+const menu=document.querySelectorAll('li');
+for(const li of menu){
+li.addEventListener('click',()=>{
+  document.getElementById('navmenu').classList.add('hidden')
+
+})
+
+}
+
+
+}
+
+
+  return (
+    <div className="flex lg:justify-around  h-20 justify-between p-4 bg-slate-200 sticky top-0 z-50 ">
+      <div className="flex justify-between item-center gap-3">
+        <img
+          src={"https://i.ibb.co/9W2YPb5/logo1.jpg"
+
+          }
+          className="w-12 h-12 rounded-full"
+          alt=""
+        />
+        <div>
+          <h1 className="lg:text-2xl font-bold text-red-500 uppercase">
+      Butterfly
+          </h1>
+          <p className="tracking-widest ">Wings</p>
+        </div>
+      </div>
+      <nav className="lg:flex  hidden md:flex">
+        <ul className="flex space-x-6">{menuItems}</ul>{" "}
+      </nav>
+  
+
+      <nav  className="flex-col " >
+      <svg id="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8  ml-28 lg:hidden md:hidden" onClick={handleToOpen}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+</svg>
+
+
+        <ul  className=" mt-6   px-2 py-4 shadow bg-base-200 rounded-box w-40 hidden" id="navmenu">
+          {menuItems}
+          {user && <div className=" flex items-center gap-4">
+      <p className="font-bold">{user.displayName}</p>
+      <img className="lg:w-12 lg:h-12 w-8 h-8 rounded-full border-2 border-indigo-800" src={user.photoURL} alt="" />
+      </div>}
+        </ul>
+      
+      </nav>
+      {user && <div className=" flex items-center gap-4">
+      <p className="font-bold">{user.displayName}</p>
+      <img className="lg:w-12 lg:h-12 w-8 h-8 rounded-full border-2 border-indigo-800" src={user.photoURL} alt="" />
+      </div>}
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-     {menuItems}
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
-</div>
-    );
+  );
 };
 
 export default Navbar;

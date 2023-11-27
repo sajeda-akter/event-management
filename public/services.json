@@ -1,0 +1,46 @@
+[
+    {
+      "id": 101,
+      "name": "Wedding Event Management",
+      "img": "https://i.ibb.co/P5QNpY8/wedding.jpg",
+      "price":50000,
+      "description": "A wedding is a marriage ceremony and the party or special meal that often takes place after the ceremony. Most Britons still want a traditional wedding."
+    },
+    {
+      "id": 102,
+      "name": "Anniversaries Event",
+      "img": "https://i.ibb.co/PDty3mW/anniversy.jpg",
+      "price": 20000,
+      "description": "An anniversary is a date which is remembered or celebrated because a special event happened on that date in a previous year. a day when we remember or celebrate something important that happened on that day in a previous year: To celebrate our wedding anniversary."
+    },
+    {
+      "id": 103,
+      "name": "Birthday Event ",
+      "img": "https://i.ibb.co/VwgQKHn/birthdays.jpg",
+      "price": 10000,
+      "description": "This birthday, I wish you abundant happiness and love. May all your dreams turn into reality and may lady luck visit your home today."
+    },
+    {
+      "id": 104,
+      "name": "Retirement  Event",
+      "img": "https://i.ibb.co/9bz0bXg/retairement.jpg",
+      "price": 8000,
+      "description": "Retirement is the withdrawal from one's position or occupation or from one's active working life. A person may also semi-retire by reducing work hours ."
+    },
+    {
+      "id": 105,
+      "name": "Baby Shower",
+      "img": "https://i.ibb.co/1n7B6Vx/shower.jpg",
+      "price": 15000,
+      "description": "The baby shower is a family's first opportunity to gather people together to help play a part in their child's life. The new parents may wish to call on people ."
+    },
+    {
+      "id": 106,
+      "name": "Engagement Event",
+      "img": "https://i.ibb.co/kBK9GVQ/engagements.jpg",
+      "price": 30000,
+      "description": "An engagement or betrothal is the period of time between the declaration of acceptance of a marriage proposal and the marriage itself During this peri"
+    }
+   
+  ]
+  

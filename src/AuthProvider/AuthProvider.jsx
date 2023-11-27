@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/fairebase.config";
-import { createUserWithEmailAndPassword,signInWithPopup,signInWithEmailAndPassword,onAuthStateChanged,signOut, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth";
+import { createUserWithEmailAndPassword,updateProfile,signInWithPopup,signInWithEmailAndPassword,onAuthStateChanged,signOut, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth";
 
 
 export const AuthContext=createContext(null)
@@ -24,6 +24,13 @@ const AuthProvider = ({children}) => {
     const githubSignin=()=>{
         return signInWithPopup(auth,githubProvider)
     }
+
+    const userUpdate=(name,photoURL)=>{
+        return updateProfile(auth.currentUser,{
+                displayName:name,
+                photoURL:photoURL
+        })
+    }
     useEffect(()=>{
         const unSubcribe=onAuthStateChanged(auth,currentUser=>{
             console.log('obserb ')
@@ -41,7 +48,8 @@ const AuthProvider = ({children}) => {
         userSignin,
         logOut,
         googleSignin,
-        githubSignin
+        githubSignin,
+        userUpdate
 
     }
     return (
