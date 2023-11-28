@@ -8,11 +8,12 @@ const Register = () => {
   const [errorpassword,setErrorPassword]=useState()
   const navigate=useNavigate()
   const location=useLocation()
+  
   const handleSignup=(e)=>{
     e.preventDefault()
     const name=e.target.name.value;
-    const photoURL=e.target.PhotoURL;
-    console.log(photoURL)
+    const photoURL=e.target.PhotoURL.value;
+    
     const email=e.target.email.value;
     const password=e.target.password.value;
     
@@ -92,7 +93,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="PhotoURL"
-              name="photoURL"
+              name="PhotoURL"
               className="py-4 outline-none border-b-2 border-indigo-800"
            
             />

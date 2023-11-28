@@ -1,27 +1,34 @@
-import { useContext} from "react";
+import { useContext, useState} from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const {userSignin,googleSignin,githubSignin}=useContext(AuthContext)
+  const [displayError,setDisplayError]=useState("")
+  const {userSignin,googleSignin,githubSignin,user}=useContext(AuthContext)
   const navigate=useNavigate()
   const location=useLocation()
+
+  // signin by google
 const handleGoogle=()=>{
   googleSignin()
 
 }
 
+// signing by github
 const handleGithub=()=>{
   githubSignin()
 }
+
+
   const handleSignup=(e)=>{
     e.preventDefault()
-  
+
+    setDisplayError("")
     const email=e.target.email.value;
     const password=e.target.password.value;
-
-    
+     toast("Please provide a valid user")
+   
  
 
     userSignin(email,password)
@@ -30,7 +37,7 @@ const handleGithub=()=>{
       navigate(location?.state ? location.state:'/')
       toast("Successfully login user")
     })
-    .catch(error=>console.log(error))
+    .catch(error=>(setDisplayError(error)))
     
 
     // reset form
@@ -68,7 +75,7 @@ const handleGithub=()=>{
               className="py-4 outline-none border-b-2 border-indigo-800"
               required
             />
-              {/* <span className="text-red-600 font-bold">{errorPassword}</span>  */}
+
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>

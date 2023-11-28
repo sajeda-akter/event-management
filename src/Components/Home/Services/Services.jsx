@@ -23,7 +23,7 @@ const Services = () => {
       <div className={serviceLength === services.length && "hidden"}>
         <button
           onClick={() => setServiceLength(services.length)}
-          className="w-32 ml-[700px]  my-10 btn btn-primary text-white text-xl"
+          className="w-32 ml-44 lg:ml-[700px]  my-10 btn btn-primary text-white text-xl"
         >
           See More
         </button>

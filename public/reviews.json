@@ -4,6 +4,7 @@
         "name":"Rifat Rahman",
         "time":"8 hour ago",
         "email":"rifat12@gmail.com",
+        "animate":"fade-up",
         "img":"https://i.ibb.co/GkFqvqF/user.jpg",
         "reviews":"Their event decoration is good.They do all the work perfectly.I'm very impressed.It's a very qualityful event decoration management system i have seen ever.Thanks for your such loving perform."
 
@@ -13,6 +14,7 @@
         "name":"Rup Chowdhury",
         "time":"2 days ago",
         "email":"rup190@gmail.com",
+        "animate":"fade-down",
         "img":"https://i.ibb.co/tcHJQmV/user2.jpg",
         "reviews":"Their event decoration is good.They do all the work perfectly.I'm very impressed.It's a very qualityful event decoration management system i have seen ever.Thanks for your such loving perform."
 
@@ -22,6 +24,7 @@
         "name":"Md Mehedi Hasan",
         "email":"mdMehedi@gmail.com",
         "time":"5 month ago",
+        "animate":"fade-right",
         "img":"https://i.ibb.co/m8L9W6F/user3.jpg",
         "reviews":"Their event decoration is good.They do all the work perfectly.I'm very impressed.It's a very qualityful event decoration management system i have seen ever.Thanks for your such loving perform."
 
@@ -31,6 +34,7 @@
         "name":"Anik Sarkar",
         "email":"aniksarkar@gmail.com",
         "time":"1 year ago",
+        "animate":"fade-left",
          "img":"https://i.ibb.co/TvrV9XR/user4.jpg",
         "reviews":"Their event decoration is good.They do all the work perfectly.I'm very impressed.It's a very qualityful event decoration management system i have seen ever.Thanks for your such loving perform."
 
@@ -40,6 +44,7 @@
         "name":"Latifur Rahman Rit",
         "email":"rit140@gmail.com",
         "time":"2 weeks ago",
+        "animate":"fade-up",
         "img":"https://i.ibb.co/8zZNyPW/user5.jpg",
         "reviews":"Their event decoration is good.They do all the work perfectly.I'm very impressed.It's a very qualityful event decoration management system i have seen ever.Thanks for your such loving perform."
 
@@ -49,6 +54,7 @@
         "name":"Jamshed Chowdhury",
         "email":"jamshed@gmail.com",
         "time":"1 month agos",
+        "animate":"fade-down",
         "img":"https://i.ibb.co/R6rjMDc/user6.jpg",
         "reviews":"Their event decoration is good.They do all the work perfectly.I'm very impressed.It's a very qualityful event decoration management system i have seen ever.Thanks for your such loving perform."
 

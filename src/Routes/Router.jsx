@@ -7,6 +7,8 @@ import Services from "../Components/Home/Services/Services";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import DetailsPage from "../Components/DetailsPage/DetailsPage";
 import PrivateRoute from "./PrivateRoute";
+import Gallery from "../Components/Gallery/Gallery";
+import Blogs from "../Components/Blogs/Blogs";
 
 export const routers=createBrowserRouter([
     {
@@ -29,6 +31,14 @@ export const routers=createBrowserRouter([
             {
                 path:'/services',
                 element:<Services/>
+            },
+            {
+                path:"/gallery",
+                element:<PrivateRoute><Gallery/></PrivateRoute>
+            },
+            {
+                path:"/blogs",
+                element:<PrivateRoute><Blogs/></PrivateRoute>
             },
             {
                 path:'/services/:id',

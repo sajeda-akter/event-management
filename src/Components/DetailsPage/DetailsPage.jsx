@@ -8,11 +8,11 @@ const DetailsPage = () => {
   
     return (
         <div className="w-10/12 mx-auto my-6">
-           <img src={findService.img} className="w-5/12 mx-auto rounded-xl" alt="" />
-           <div className="my-4 text-center">
-            <h1 className="text-4xl font-medium my-2">{findService.name}</h1>
+           <img src={findService.img} className="lg:w-5/12 mx-auto rounded-xl" alt="" />
+           <div className="my-4 lg:text-center">
+            <h1 className="text-2xl lg:text-4xl font-medium my-2">{findService.name}</h1>
             <p className="text-2xl font-bold">Price: ${findService.price}</p>
-            <p className="text-xl w-3/4 mx-auto">{findService.description}</p>
+            <p className="text-xl lg:w-3/4 mx-auto">{findService.description}</p>
            <button className="btn btn-primary mt-4 uppercase text-xl">Book Now</button>
            </div>
         </div>
