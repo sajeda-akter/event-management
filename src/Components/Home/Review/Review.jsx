@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaStar, FaStarHalf } from "react-icons/fa";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Initialize AOS
 AOS.init();
@@ -19,7 +19,7 @@ const Review = () => {
       <h1 className="text-3xl font-bold text-center mt-16 mb-4 lg:text-5xl">
         Our Customer Reviews
       </h1>
-      <div  className="grid grid-cols lg:grid-cols-2 lg:w-10/12 w-9/12 mx-auto gap-5 my-12">
+      <div className="grid grid-cols lg:grid-cols-2 lg:w-10/12 w-9/12 mx-auto gap-5 my-12">
         {reviews.map((review) => (
           <div
             key={review.id}

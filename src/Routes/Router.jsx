@@ -10,41 +10,53 @@ import PrivateRoute from "./PrivateRoute";
 import Gallery from "../Components/Gallery/Gallery";
 import Blogs from "../Components/Blogs/Blogs";
 
-export const routers=createBrowserRouter([
-    {
-        path:'/',
-        errorElement:<ErrorPage/>,
-        element:<Main/>,
-        children:[
-            {
-                path:'/',
-                element:<Home/>
-            },
-            {
-                path:'/login',
-                element:<Login/>
-            }
-            ,{
-                path:'/signup',
-                element:<Register/>
-            },
-            {
-                path:'/services',
-                element:<Services/>
-            },
-            {
-                path:"/gallery",
-                element:<PrivateRoute><Gallery/></PrivateRoute>
-            },
-            {
-                path:"/blogs",
-                element:<PrivateRoute><Blogs/></PrivateRoute>
-            },
-            {
-                path:'/services/:id',
-                loader:()=>fetch('services.json'),
-                element:<PrivateRoute><DetailsPage/></PrivateRoute>
-            }
-        ]
-    }
-])
+export const routers = createBrowserRouter([
+  {
+    path: "/",
+    errorElement: <ErrorPage />,
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Register />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/gallery",
+        element: (
+          <PrivateRoute>
+            <Gallery />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/blogs",
+        element: (
+          <PrivateRoute>
+            <Blogs />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/services/:id",
+        loader: () => fetch("services.json"),
+        element: (
+          <PrivateRoute>
+            <DetailsPage />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+]);

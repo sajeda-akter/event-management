@@ -3,7 +3,7 @@ import Service from "./Service/Service";
 
 const Services = () => {
   const [services, setServices] = useState([]);
-  const [serviceLength,setServiceLength]=useState(3)
+  const [serviceLength, setServiceLength] = useState(3);
   useEffect(() => {
     fetch("services.json")
       .then((res) => res.json())
@@ -16,7 +16,7 @@ const Services = () => {
         Our All Services
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-10/12 mx-auto">
-        {services.slice(0,serviceLength).map((service) => (
+        {services.slice(0, serviceLength).map((service) => (
           <Service key={service.id} service={service}></Service>
         ))}
       </div>

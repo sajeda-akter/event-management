@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Service = ({ service }) => {
   const { name, img, description, id } = service;
@@ -12,7 +13,6 @@ const Service = ({ service }) => {
         <p>{description.slice(0, 50)} ...</p>
         <div className="card-actions ">
           <Link to={`/services/${id}`}>
-           
             <button className="btn btn-primary w-32 text-xl ml-28 mt-4">
               Details
             </button>
@@ -23,4 +23,7 @@ const Service = ({ service }) => {
   );
 };
 
+Service.propTypes={
+  service:PropTypes.object
+}
 export default Service;
